@@ -29,4 +29,44 @@ public class UsersController : Controller
 
         return View(model);
     }
+
+    [HttpGet("ListActive")]
+    public ViewResult ListActive()
+    {
+        var items = _userService.FilterByActive(true).Select(p => new UserListItemViewModel
+        {
+            Id = p.Id,
+            Forename = p.Forename,
+            Surname = p.Surname,
+            Email = p.Email,
+            IsActive = p.IsActive
+        });
+
+        var model = new UserListViewModel
+        {
+            Items = items.ToList()
+        };
+
+        return View("List", model);
+    }
+
+    [HttpGet("ListNonActive")]
+    public ViewResult ListNonActive()
+    {
+        var items = _userService.FilterByActive(false).Select(p => new UserListItemViewModel
+        {
+            Id = p.Id,
+            Forename = p.Forename,
+            Surname = p.Surname,
+            Email = p.Email,
+            IsActive = p.IsActive
+        });
+
+        var model = new UserListViewModel
+        {
+            Items = items.ToList()
+        };
+
+        return View("List", model);
+    }
 }
