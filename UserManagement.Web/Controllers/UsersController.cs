@@ -74,11 +74,20 @@ public class UsersController : Controller
         return View("List", model);
     }
 
-    [HttpPost]
+    [HttpPost("AddUser")]
     public IActionResult AddUser(User user)
     {
         _userService.Add(user);
 
         return RedirectToAction("List");
     }
+
+    [HttpPost("EditUser")]
+    public IActionResult EditUser(User user)
+    {
+        _userService.Edit(user);
+
+        return RedirectToAction("List");
+    }
 }
+

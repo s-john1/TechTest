@@ -44,7 +44,19 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnToggleActions">
                                 <li><a class="dropdown-item" href="#">View</a></li>
-                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                <li>
+                                    <a href="#" class="dropdown-item edit-user-btn"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#editUserModal"
+                                       data-user-id="@item.Id"
+                                       data-user-forename="@item.Forename"
+                                       data-user-surname="@item.Surname"
+                                       data-user-email="@item.Email"
+                                       data-user-dob="@item.DateOfBirth.ToString("yyyy-MM-dd")"
+                                       data-user-isactive="@item.IsActive.ToString().ToLower()">
+                                        Edit
+                                    </a>
+                                </li>
                                 <li><a class="dropdown-item" href="#">Delete</a></li>
                             </ul>
                         </div>
@@ -68,3 +80,6 @@
 </div>
 
 @await Html.PartialAsync("_AddUserPartial")
+
+@await Html.PartialAsync("_EditUserPartial")
+

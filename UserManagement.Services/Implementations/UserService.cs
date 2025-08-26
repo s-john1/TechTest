@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using UserManagement.Data;
 using UserManagement.Models;
 using UserManagement.Services.Domain.Interfaces;
@@ -27,5 +28,10 @@ public class UserService : IUserService
     public void Add(User user)
     {
         _dataAccess.Create(user);
+    }
+
+    public void Edit(User user)
+    {
+        _dataAccess.Update(user);
     }
 }
