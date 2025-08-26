@@ -43,9 +43,23 @@
                                 Actions
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnToggleActions">
-                                <li><a class="dropdown-item" href="#">View</a></li>
                                 <li>
-                                    <a href="#" class="dropdown-item edit-user-btn"
+                                    <a href="#"
+                                       class="dropdown-item"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#viewUserModal"
+                                       data-user-id="@item.Id"
+                                       data-user-forename="@item.Forename"
+                                       data-user-surname="@item.Surname"
+                                       data-user-email="@item.Email"
+                                       data-user-dob="@item.DateOfBirth.ToString("yyyy-MM-dd")"
+                                       data-user-isactive="@item.IsActive.ToString().ToLower()">
+                                        View
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="dropdown-item"
                                        data-bs-toggle="modal"
                                        data-bs-target="#editUserModal"
                                        data-user-id="@item.Id"
@@ -83,3 +97,4 @@
 
 @await Html.PartialAsync("_EditUserPartial")
 
+@await Html.PartialAsync("_ViewUserPartial")

@@ -1,0 +1,38 @@
+﻿
+<div class="modal fade" id="viewUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewUserModalLabel">User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <p><strong>ID:</strong> <span id="viewUserId"></span></p>
+                <p><strong>Forename:</strong> <span id="viewUserForename"></span></p>
+                <p><strong>Surname:</strong> <span id="viewUserSurname"></span></p>
+                <p><strong>Email:</strong> <span id="viewUserEmail"></span></p>
+                <p><strong>Date of Birth:</strong> <span id="viewUserDob"></span></p>
+                <p><strong>Active:</strong> <span id="viewUserIsActive"></span></p>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const viewUserModal = document.getElementById('viewUserModal');
+            viewUserModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('viewUserId').textContent  = button.getAttribute('data-user-id');
+            document.getElementById('viewUserForename').textContent  = button.getAttribute('data-user-forename');
+            document.getElementById('viewUserSurname').textContent  = button.getAttribute('data-user-surname');
+            document.getElementById('viewUserEmail').textContent  = button.getAttribute('data-user-email');
+            document.getElementById('viewUserDob').textContent  = button.getAttribute('data-user-dob');
+            document.getElementById('viewUserIsActive').textContent   = button.getAttribute('data-user-isactive') === 'true';
+    });
+    });
+</script>
