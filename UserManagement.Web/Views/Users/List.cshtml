@@ -71,7 +71,17 @@
                                         Edit
                                     </a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                <li>
+                                    <a href="#"
+                                       class="dropdown-item"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#deleteUserModal"
+                                       data-user-id="@item.Id"
+                                       data-user-forename="@item.Forename"
+                                       data-user-surname="@item.Surname">
+                                        Delete
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </td>
@@ -98,3 +108,5 @@
 @await Html.PartialAsync("_EditUserPartial")
 
 @await Html.PartialAsync("_ViewUserPartial")
+
+@await Html.PartialAsync("_DeleteUserPartial")

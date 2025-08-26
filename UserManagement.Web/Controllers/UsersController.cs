@@ -89,5 +89,17 @@ public class UsersController : Controller
 
         return RedirectToAction("List");
     }
+
+    [HttpPost("DeleteUser")]
+    public IActionResult DeleteUser(int id)
+    {
+        var user = _userService.GetAll().FirstOrDefault(user => user.Id == id);
+        if (user != null)
+        {
+            _userService.Delete(user);
+        }
+
+        return RedirectToAction("List");
+    }
 }
 

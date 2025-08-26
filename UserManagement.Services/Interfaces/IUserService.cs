@@ -15,4 +15,6 @@ public interface IUserService
 
     void Add(User user);
     void Edit(User user);
+
+    void Delete(User user);
 }

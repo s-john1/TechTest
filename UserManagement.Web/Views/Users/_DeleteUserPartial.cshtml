@@ -1,0 +1,39 @@
+﻿
+<div class="modal fade" id="deleteUserModal">
+    <div class="modal-dialog">
+        <form asp-controller="Users" asp-action="DeleteUser" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" name="Id" id="deleteUserId" />
+                    <p>Are you sure you want to delete user <strong id="deleteUserName"></strong>?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteUserModal = document.getElementById('deleteUserModal');
+            deleteUserModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+
+            const userId = button.getAttribute('data-user-id');
+            const forename = button.getAttribute('data-user-forename');
+            const surname = button.getAttribute('data-user-surname');
+
+            document.getElementById('deleteUserId').value = userId;
+            document.getElementById('deleteUserName').textContent = `${forename} ${surname}`;
+        });
+    });
+</script>
