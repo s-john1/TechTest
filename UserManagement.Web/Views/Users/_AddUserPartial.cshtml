@@ -1,0 +1,41 @@
+﻿
+<div class="modal fade" id="addUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-controller="Users" asp-action="AddUser" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Forename</label>
+                        <input name="Forename" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Surname</label>
+                        <input name="Surname" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="Email" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" name="DateOfBirth" class="form-control" required />
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="IsActive" value="true" class="form-check-input" />
+                        <label class="form-check-label">Account Active</label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

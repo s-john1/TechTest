@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using UserManagement.Models;
 using UserManagement.Services.Domain.Interfaces;
 using UserManagement.Web.Models.Users;
 
@@ -71,5 +72,13 @@ public class UsersController : Controller
         };
 
         return View("List", model);
+    }
+
+    [HttpPost]
+    public IActionResult AddUser(User user)
+    {
+        _userService.Add(user);
+
+        return RedirectToAction("List");
     }
 }
